@@ -1,0 +1,134 @@
+% This file contains the layout of the first six pages and the explanation text
+% of a compilation thesis. 
+
+%%%%%%%%%%%%% FIRST PAGES WITH THESIS TITLE ETC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \frontmatter % roman numbers
+
+% Page one: Title only
+\thispagestyle{empty} % no page number
+\begin{center}
+\vspace*{5cm}
+{\Large \myMainTitle}
+%\\
+%{\large \mySubTitle}
+\end{center}
+
+% Page two: empty. Empty space is important
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Page three: title page with small text (spikningsblad)
+
+\cleardoublepage
+\thispagestyle{empty} % no page number
+~
+\vfill
+\begin{center}
+{\HUGE \myMainTitle}
+\\[2mm]
+{\huge \mySubTitle}
+
+\vfill
+{by \myName}
+
+\vfill
+% black and white (default):
+\includegraphics[width=0.25\textwidth]{LundUniversity_C2line_BLACK.eps}
+
+\vspace{10mm}
+{\large \myDegree}\\
+{\large Thesis advisors: \myAdvisors}\\
+{\large Faculty opponent: \myOpponent}\\
+\vspace{1cm}
+{\footnotesize
+\myDefenceAnnouncement
+}
+\\
+\end{center}
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Page four: data sheet
+\newpage \thispagestyle{empty} % no page number
+%Either include datasheet texfile (will be filled in automatically), or a pdf
+%containing datasheet (text needs to be already in it, edit
+%sheetPDF_editable.pdf). Use one of the next two lines: 
+\input{auxiliary_texfiles/datasheet}
+%\addtocounter{pages}{1} \includepdf[pages=1-1]{datasheetPDF_editable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Page five: title and author, without small text. Looks good!
+
+\cleardoublepage
+\thispagestyle{empty} % no page number
+~
+\vfill
+\begin{center}
+{\HUGE \myMainTitle}
+\\[2mm]
+{\huge \mySubTitle}
+
+\vfill
+{by \myName}
+
+\vfill
+% black and white (default):
+\includegraphics[width=0.25\textwidth]{LundUniversity_C2line_BLACK.eps}
+
+% Colour text in white so that the spacing is the same as on page three, but with less clutter
+\color{white}{
+\vspace{10mm}
+{\large \myDegree}\\
+{\large Thesis advisors: \myAdvisors}\\
+{\large Faculty opponent: \myOpponent}\\
+\vspace{1cm}
+{\footnotesize
+\myDefenceAnnouncement
+}
+}
+\\
+\end{center}
+\vfill
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Page six: Cover image description, ISBN, copyright
+\newpage 
+\thispagestyle{empty} % no page number
+%~
+%\vfill
+\vspace{-15mm}
+A doctoral thesis at a university in Sweden takes either the form of a single,
+cohesive research study (monograph) or a summary of research papers
+(compilation thesis), which the doctoral student has written alone or together
+with one or several other author(s). 
+
+In the latter case the thesis consists of two parts. An introductory text puts
+the research work into context and summarizes the main points of the papers.
+Then, the research publications themselves are reproduced, together
+with a description of the individual contributions of the authors. The
+research papers may either have been already published or are manuscripts at
+various stages (in press, submitted, or in draft). 
+
+\vfill
+{\small
+\myCoverFront\\
+\\
+\myCoverBack\\
+\\
+\myFundingInformation
+
+
+\vspace{5mm}
+\copyright\, \myName~\myYear\\
+\\
+\myFaculty, {\myDepartment}
+\\
+\\
+\ISBN: \myISBNprint~(print)\\ % ISBN av svenska ISBN centralen
+\ISBN: \myISBNpdf~(pdf)\\ % ISBN av svenska ISBN centralen
+\mySeries\\
+\\
+Printed in Sweden by Media-Tryck, Lund~University, Lund~\myYear
+
+\includegraphics[width=0.5\textwidth]{ENG-Miljologotyper-sid-2-BLACK.eps}
+}

@@ -1,0 +1,257 @@
+% Non-breakable hyphen. Use for things like "(re-)print". 
+\newcommand\nobrkhyph{\mbox{-}}
+
+% Small caps serif font, for Paper numbers, ISBN, etc
+\newcommand{\I}{\textrm{\scshape i}\xspace}
+\newcommand{\II}{\textrm{\scshape ii}\xspace}
+\newcommand{\III}{\textrm{\scshape iii}\xspace}
+\newcommand{\IV}{\textrm{\scshape iv}\xspace}
+\newcommand{\V}{\textrm{\scshape v}\xspace}
+\newcommand{\VI}{\textrm{\scshape vi}\xspace}
+\newcommand{\VII}{\textrm{\scshape vii}\xspace}
+\newcommand{\VIII}{\textrm{\scshape viii}\xspace}
+\newcommand{\IX}{\textrm{\scshape ix}\xspace}
+\newcommand{\X}{\textrm{\scshape x}\xspace}
+\newcommand{\ISBN}{\textrm{\scshape isbn}\xspace}
+\newcommand{\ISSN}{\textrm{\scshape issn}\xspace}
+
+% Must come in the beginning. Changes the spacing in the table of contents to look more pleasing
+\usepackage{tocloft}
+\setlength{\cftbeforepartskip}{5.0mm}
+\setlength{\cftbeforechapskip}{2.0mm}
+\setlength{\cftbeforesecskip}{0.0mm}
+
+% Must come in the beginning. To calculate the total number of pages
+\usepackage{pageslts}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Everything font-related %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{ifxetex}
+
+% Font selections - they are only used when you compile with xelatex (strongly recommended). If you use 
+% pdflatex, the default latex fonts will be used, you will break the University graphical profile, and your
+% thesis will look much much uglier.
+
+\ifxetex
+	% \usepackage{mathspec}
+	\usepackage[no-math]{fontspec}
+	\usepackage{xunicode}
+	\usepackage{xltxtra}
+	% Adobe Garamond Pro for serif fonts and maths, Frutiger as sans, according to LU graphical profile
+	% Tables get monospaced numerals, text gets proportional numerals, mathmode gets uppercase monospaced numberals
+	% \setmainfont[Mapping=tex-text,Numbers={OldStyle,Proportional}]{Adobe Garamond Pro}
+         \setmainfont{AGaramondPro}[
+        Path = fonts/,
+        Extension = .otf,
+        UprightFont = *-Regular,
+        BoldFont = *-Semibold,
+        ItalicFont = *-Italic,
+        Mapping = tex-text,
+        Numbers = {OldStyle, Proportional}
+        ]
+	\AtBeginEnvironment{tabular}{\addfontfeatures{Numbers={Monospaced}}}
+	% \setsansfont{Frutiger LT Std 45 Light}
+	% \setmathfont(Greek,Digits,Latin){Adobe Garamond Pro}
+	% mathspec is broken. The next eight lines work around that.
+	% \usepackage{etoolbox}
+	% \makeatletter
+	% \begingroup\lccode`~=`"
+	% \lowercase{\endgroup
+	%   \everymath{\let~\eu@active@quote}
+	%   \everydisplay{\let~\eu@active@quote}
+	% }
+	% \makeatother
+\else
+	% This is what is used for pdf latex. 
+	% You can try \usepackage{ebgaramond} with (pdf)latex, however that does not have bold fonts ... !
+	%\usepackage{ebgaramond}
+	 \usepackage[utf8]{inputenc}
+\fi
+%%%%%%%%%%%% end font selections
+
+% Support for greek (non-math non-italic) text, e.g. for units like mircometer: \textmu m 
+% \usepackage{textgreek}
+
+% Additional font sizes \HUGE and \ssmall, needed for figure captions
+\usepackage{moresize}
+
+% figure captions in bold (i.e. "Figure 1" in bold), sans serif, smaller font size, hanging label, always starting on the left side
+\usepackage{subfig}
+\DeclareCaptionFont{ssmall}{\ssmall}
+\DeclareCaptionFont{tiny}{\tiny}% "scriptsize" is defined by floatrow, "tiny" not
+\captionsetup{margin=0em,font={ssmall,sf},labelfont={bf},format=hang,singlelinecheck=false} 
+
+% figures centred, smaller font in tables, captions on top for tables
+\usepackage{floatrow}
+% \DeclareFloatFont{tiny}{\tiny}% "scriptsize" is defined by floatrow, "tiny" not
+% \DeclareFloatFont{ssmall}{\ssmall}
+% \floatsetup[table]{font={footnotesize},position=top}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% end fonts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% For tables spanning the full text width
+\usepackage{tabularx}
+
+% For URLs use \url{<URL>}
+\usepackage{url}
+
+% Chapters should have numbers - a typical thesis consists of two chapters:
+% One to introduce and summarize the research ("kappa"), and one for
+% reproductions of the papers and manuscripts. No need to number them by default.
+% If you need chapter numbers back, comment the following line.
+% \renewcommand{\thesection}{\arabic{section}} 
+
+% Sections and subsections have numbers, subsubsections etc do not.
+\setcounter{secnumdepth}{3}
+
+% Only chapters and sections appear in the table of contents, not subsections etc
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+% Ensures that \cleardoublepage inserts empty pages without page number
+\usepackage{emptypage} 
+
+% For text macros (e.g., small caps macros)
+\usepackage{xspace}
+
+% For "Lorem Ipsum" style place holders
+\usepackage{blindtext}
+
+% For \includegraphics
+\usepackage{graphicx}
+
+% Nice looking tables with correct spacings 
+\usepackage{booktabs}
+
+% Tables spanning more than one page
+\usepackage{longtable}
+ 
+% Math symbols
+\usepackage{amsfonts,amsmath,amssymb}
+
+% To include the PDFs of the papers
+\usepackage{pdfpages}
+
+% For Natural Science students who use ADS. Save to have in any case.
+% \usepackage{auxiliary_texfiles/aas_macros}
+
+% Hyphenation, support for different languages, last one is default
+% % Make sure to install the hyphenation packages for all languages you need
+% \usepackage[swedish,ngerman,british]{babel} 
+
+% Reference in style of Natural Sciences
+\usepackage{natbib}
+
+% Non-indented paragraphs with a small vertical space in-between
+\parindent 0in
+\parskip 3mm
+
+% Paper size. Typically this works also fine when printed on A4 (text size is
+% as print later, just the margins become wider to accommodate the too large
+% sheets).
+%% G5 format
+% \usepackage[paperwidth=169mm,paperheight=239mm,total={13.3cm,19.6cm}, top=1.8cm, ignorehead, centering, footskip=\footskip+4mm ]{geometry}
+% If you prefer E5 (smaller) you can use this line instead. Also go to frontmatter.tex and change the datasheet from G5 to E5.
+%% E5 format
+\usepackage[paperwidth=155mm,paperheight=220mm,total={12cm,18cm}, top=1.8cm, ignorehead, footskip=\footskip+4mm ]{geometry}
+
+% not every page needs to go to the same bottom line. Allows nicer page breaks.
+\raggedbottom
+
+% avoid orphan/widow lines. Lower this number if necessary to get a good layout.
+\widowpenalty500
+\clubpenalty500
+
+
+% These command should allow figures to be placed close to where we define them, 
+% thus we can influence the figure placement to some extent.
+%% min page fraction that must be filled with text
+% \renewcommand{\textfraction}{0.1} 
+\renewcommand{\textfraction}{0.}
+%% max page fraction that a float may take at the top of the page
+%\renewcommand{\topfraction}{0.9} 
+\renewcommand{\topfraction}{1.0}
+%% max page fraction that a float may take at the bottom of the page
+%\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\bottomfraction}{1.0}
+%% max page fraction that may be filled with floats
+%\renewcommand{\floatpagefraction}{0.5}
+\renewcommand{\floatpagefraction}{1.0}
+%% maximum number of floats at the top of the page
+\setcounter{topnumber}{3}
+%% maximum number of floats at the bottom of the page
+\setcounter{bottomnumber}{1}
+%% maximum total number of floats on a page
+\setcounter{totalnumber}{3}
+
+% Figures can be kept in the same directory as the thesis, or in a Figure/
+% directory, without need to specifying which of the two it is
+\graphicspath{{Figures/}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define commands for chapters, sections, and subsections that do not 
+% have a number, but are entered as candidates for the table of contents.
+\newcommand\chap[1]{%
+  \chapter*{#1}%
+  \addcontentsline{toc}{chapter}{#1}
+  \markboth{#1}{#1}
+}
+\newcommand\sect[1]{%
+  \section*{#1}%
+  \addcontentsline{toc}{section}{#1}
+  \markright{#1}
+}
+\newcommand\subsect[1]{%
+  \subsection*{#1}%
+  \addcontentsline{toc}{subsection}{#1}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define nice headers and footers
+% To keep the thesis non-cluttered we only put the page number into the footer,
+% and avoid headers
+\usepackage{fancyhdr}
+\fancyheadoffset{0cm}
+\pagestyle{plain}
+%page number in the foot centre 
+\cfoot{\fancyplain{\thepage}{}}
+
+% You want to use headers? Here is some things for your inspiration:
+%\renewcommand{\chaptermark}[1]%
+%               {\markboth{#1}{#1}}
+%\renewcommand{\sectionmark}[1]%
+%               {\markright{\thesection\ #1}}
+%\renewcommand{\chaptermark}[1]{\markboth{\thechapter\ #1}{\thechapter\ #1}}
+%\lhead[\fancyplain{}{\thepage}]%
+%      {\fancyplain{}{\textsl\rightmark}}
+%\rhead[\fancyplain{}{\textsl\leftmark}]%
+%      {\fancyplain{}{\thepage}}
+% Contents and references should not print a uppercase header on their second pages
+%\usepackage{etoolbox}
+%\patchcmd{\tableofcontents}{\MakeUppercase\contentsname}{\contentsname}{}{}
+%\patchcmd{\tableofcontents}{\MakeUppercase\contentsname}{\contentsname}{}{}
+%\patchcmd{\bibsection}{\MakeUppercase{\bibname}}{\bibname}{}{}
+%\patchcmd{\bibsection}{\MakeUppercase{\bibname}}{\bibname}{}{}
+
+% References should be a section of the summary text, with number and all ...
+\renewcommand\bibsection{\section{\bibname}\markright{\bibname}}
+
+% If you want to use a box to summarize your papers, try \begin{thesisbox}{title}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\newtcolorbox{thesisbox}[2][]{
+oversize=-2.5cm,
+  enhanced,
+  attach boxed title to top left={yshift=-2ex,xshift=6ex},
+  before skip=1em,
+  after skip=1em,
+  colframe=black,
+  colback=white,
+  fonttitle=\bfseries, 
+  colbacktitle=white,
+  coltitle=black,
+  boxed title style={
+    boxrule=0pt,
+    colframe=white,
+    },
+  title=#2,
+  #1}

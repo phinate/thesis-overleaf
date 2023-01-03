@@ -1,0 +1,401 @@
+% PhD thesis template, Lund University
+% Originally designed for the Faculty of Science: Astronomy and Theoretical Physics
+%
+% Layout and typesetting: Daniel Michalik, with Berry Holl, Helene Jönsson, Jonas Palm
+% Implementation and documentation: Daniel Michalik
+%
+% Credits to the past generations of students who contributed to the original
+% versions of this latex template, in particular Berry Holl.
+% 
+% Compilation instructions: use "xelatex" (necessary for support of the fonts
+% used by Lund University. The fonts need to be installed first, see README.txt
+% for instructions).
+%
+% If you use (pdf)latex instead, the default latex fonts will be used. 
+% That would be a pity, cause the Garamond/Frutiger suggestion by the
+% University looks much nicer for your thesis!
+%
+% Special command to automatically make Mac's TeXshop use xelatex for this file:
+% !TEX TS-program = XeLaTeX
+%
+\documentclass[11pt]{book} 
+
+% Hide all the usepackage commands and definitions in a preamble file.
+% Normally you should not need to edit it.
+\input{auxiliary_texfiles/preamble.tex}
+
+% ********************************************************************
+% Re-usable information (title page, datasheet)
+\newcommand{\myName}{Firstname Lastname}
+\newcommand{\myYear}{1983}
+\newcommand{\myMainTitle}{Title}
+\newcommand{\mySubTitle}{Subtitle}
+
+% Compact combination of combining title and subtitle, used in datasheet and as
+% chapter title for the main part.
+\newcommand{\myTitle}{\myMainTitle: \mySubTitle} 
+
+\newcommand{\myFaculty}{Faculty of Superheroes}
+\newcommand{\myDepartment}{Department of Arachnology}
+\newcommand{\myAddress}{Box XYZ\\SE--221 00 LUND\\Sweden} % Three lines maximum!
+
+% Only change once you are ready. Looks to scary otherwise.
+% This might be the degree you are obtaining: Thesis for the degree of Doctor of Philosophy
+\newcommand{\myDegree}{Thesis for the degree of Superhero}
+\newcommand{\myAdvisors}{Prof.~Krusty~the~Klown, Dr.~Clown~August}
+\newcommand{\myOpponent}{The Joker}
+
+\newcommand{\myDefenceAnnouncement}{%
+	To be presented, with the permission of the
+	\myFaculty\xspace of Lund University, for public criticism in the Clark Kent
+	lecture hall (Kentsalen) at the \myDepartment\xspace
+	on Sunday, the 34th of December \myYear\xspace at 24:00. }
+\newcommand{\myCoverFront}{%
+	{\bf Cover illustration front:} 
+	A really pretty thing that looks great on the front but has only a
+	remote connection to do with my research (Credits: The awesome person who made
+	this picture).}
+\newcommand{\myCoverBack}{%
+	{\bf Cover illustration back:} Picture showing my research (Paper \V).}
+\newcommand{\myFundingInformation}{%
+	{\bf Funding information:} 
+	The thesis work was financially supported by my rich uncle.}
+
+% Series number. Astronomy users:
+% Series: {\scshape lunfd6/(nfas}-1048)/1-\myPages/(\myYear)}
+% where you increment the number 1048 by one wrt to last thesis at the department
+% 
+% Your department maybe uses something else, probably an ISSN number? 
+\newcommand{\mySeries}{%
+	\ISSN: $<$ISSN number$>$}
+
+\newcommand{\myISBNprint}{1234567890}
+\newcommand{\myISBNpdf}{0987654321}
+\newcommand{\myFormSignDate}{1776-7-4}
+
+% total page number is computed automatically:
+\newcommand{\myPages}{\lastpageref{LastPages}}
+
+\newcommand{\myFormDefenceDate}{2015-12-24}
+\newcommand{\myFormKeywords}{%
+	power, victory, awesomeness}
+
+% Write a short english abstract of the thesis here, goes into the data sheet page 4. 
+\newcommand{\myAbstract}{
+	\blindtext
+
+	\blindtext
+}%
+
+% --- Shortcut thesis commands for paper references and titles ---
+% Included papers - only need to type this once
+\newcommand{\PaperIauthor}{\textbf{F. Lastname}, C. Coauthor, \ldots}
+\newcommand{\PaperIIauthor}{\textbf{F. Lastname}, C. Coauthor, \ldots}
+\newcommand{\PaperIIIauthor}{\textbf{F. Lastname}, C. Coauthor, \ldots}
+\newcommand{\PaperIVauthor}{\textbf{F. Lastname}, C. Coauthor, \ldots}
+\newcommand{\PaperVauthor}{\textbf{F. Lastname}, C. Coauthor, \ldots}
+\newcommand{\PaperVIauthor}{\textbf{F. Lastname}, C. Coauthor, \ldots}
+
+\newcommand{\PaperIref}{Journal for Superheroes, pp. 1--10}
+\newcommand{\PaperIIref}{Journal for Bankers, pp. 2--30}
+\newcommand{\PaperIIIref}{Journal for Superheroes, pp. 1--10}
+\newcommand{\PaperIVref}{Journal for Superheroes, pp. 1--10}
+\newcommand{\PaperVref}{Journal for Superheroes, pp. 1--10}
+\newcommand{\PaperVIref}{Journal for Superheroes, pp. 1--10}
+
+\newcommand{\PaperItitle}{Spiderman vs Superman}
+\newcommand{\PaperIItitle}{On the matter of \ldots}
+\newcommand{\PaperIIItitle}{On the matter of \ldots}
+\newcommand{\PaperIVtitle}{On the matter of \ldots}
+\newcommand{\PaperVtitle}{On the matter of \ldots}
+\newcommand{\PaperVItitle}{On the matter of \ldots}
+
+% Not included papers, in case you want to list them
+%\newcommand{\PaperNotIncIauthor}{C. Coauthor, \textbf{X. Someone}}
+%\newcommand{\PaperNotIncIref}{Journal for \ldots}
+%\newcommand{\PaperNotIncItitle}{Boring matter}
+% --- END reusable thesis commands ---
+
+\begin{document}
+
+%%%%%%%%%%%%% First pages with thesis title etc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% First six pages are contained in a separate file. Normally you should not
+% need to edit it.
+\input{auxiliary_texfiles/frontmatter.tex}
+
+% ===============================================================
+% ===================== INSPIRATIONAL QUOTE:  ===================
+% ===============================================================
+\newpage
+\thispagestyle{empty} % No page number on quote page
+~
+\vspace{140pt}
+\begin{flushright}
+\textit{Dedicated to my siblings\\Name -- Name -- Name}
+\end{flushright}
+
+
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%Table of contents%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{page}{1} % Page Roman 1 of the frontmatter
+\setcounter{tocdepth}{1}
+\tableofcontents
+% no page number on toc page:
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% List of publications %%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Have a long list and want to start on the left page? Here, have a special
+% chapter heading for that!
+%\addcontentsline{toc}{part}{Part 1: Summary}
+%\renewcommand{\chapterheadstartvskip}{}
+%{\let\cleardoublepage\relax \let\chapterheadstartvskip\nop 
+
+\newpage
+\sect{List of publications\label{sec:paperlist}}
+This thesis is based on the following publications, referred to by their Roman numerals:
+\vspace{2mm}
+
+{
+% Normal font size in this table, afterwards continue with slightly smaller table font size stated in preamble
+\floatsetup[table]{font={normalsize},position=top}
+\begin{tabularx}{\textwidth}{rX}
+% Normal font size in this table, afterwards continue with slightly smaller table font size stated in preamble
+\normalsize
+\I	  & {\bf \PaperItitle}\\[2mm]
+	  & \PaperIauthor\\
+          & \PaperIref\\[6mm] 
+
+\II	  & {\bf \PaperIItitle}\\[2mm]
+	  & \PaperIIauthor\\
+          & \PaperIIref\\[6mm]
+
+\III      & {\bf \PaperIIItitle}\\[2mm]
+	  & \PaperIIIauthor\\
+          & \PaperIIIref\\[6mm]
+
+\IV 	  & {\bf \PaperIVtitle}\\[2mm]
+	  & \PaperIVauthor\\
+          & \PaperIVref\\[6mm]
+          
+\V        & {\bf \PaperVtitle}\\[2mm]
+	  & \PaperVauthor\\
+          & \PaperVref\\[6mm]
+          
+\VI       & {\bf \PaperVItitle}\\[2mm]
+	  & \PaperVIauthor\\
+          & \PaperVIref\\[6mm]
+\end{tabularx}
+
+All papers are reproduced with permission of their respective publishers.
+%Or maybe you need to be more specific? Like: Paper~I and II reproduced with permission \copyright\ ESO\\
+
+% Publications not included in this thesis:
+% \vspace{2mm}
+%
+% \begin{tabularx}{\textwidth}{rX}
+% {\sc \phantom{vi}}   & {\bf \PaperNotIncItitle}\\[2mm]
+%	  & \PaperNotIncIauthor\\
+%          & \PaperNotIncIref\\[5mm] 
+%
+%\end{tabularx}
+%
+} % End large font tables, continue with font size stated in preamble
+
+
+                 
+% ===============================================================
+% ====================== Acknowledgements:  =====================
+\newpage
+\sect{Acknowledgements}
+This template was created and shared as a private initiative and comes without
+support of any kind. If you are happy to have it, you are welcome to say thanks
+and/or to send beers/goodies! :)
+
+% ===============================================================
+% ===================== POPULAR SUMMARIES:  =====================
+%----------------- SUMMARY IN ENGLISH --------------------
+\newpage
+\sect {Popular summary in English}
+Need more languages? Go to preamble.tex and add them to the
+usepackage[\ldots]{babel} line. Install the corresponding packages on your
+ system.
+
+%----------------- SUMMARY IN GERMAN --------------------
+\newpage
+\selectlanguage{ngerman}
+\sect{Populärwissenschaftliche Zusammenfassung auf Deutsch}
+\blindtext
+
+%----------------- SUMMARY IN SWEDISH --------------------
+\newpage
+\selectlanguage{swedish}
+\sect{Populärvetenskaplig sammanfattning på svenska}
+
+
+\blindtext
+
+% ===============================================================
+% ======================= SUMMARY CHAPTER   =====================
+% Back to British spelling
+\selectlanguage{british}
+% Need to add hyphenation corrections? Do like this:
+% \hyphenation{as-tro-me-try ana-lysis}
+
+% Page numbers arabic 
+\mainmatter
+% Reset table counters to not count the publications table
+\setcounter{table}{0} 
+% Rest page counters, this is where it all starts!
+\setcounter{page}{1}
+
+\chap{\myTitle}
+% Fancy a quote?
+%\begin{flushright}
+%\textit{It's easy to be complicated\\but very difficult to be simple.}\\
+%{--- Debasish Mridha}
+%\\[1cm]
+%\textit{Everything should be made as simple as possible, but not simpler}\\
+%{--- Albert Einstein}
+%\end{flushright}
+\section{Introduction}
+\subsection{Foo bar}
+\blindtext
+\blindtext
+\blindtext
+
+\subsection{Baz Baf\label{sec:mainresults}}
+\begin{figure}
+\includegraphics[width=0.6\textwidth]{natfak}
+\caption{The Faculty of Science and the Astronomy tower. (Figure: Lund University)\label{fig:cool}}
+\end{figure}
+
+Explaining something cool (see Fig.~\ref{fig:cool}), which can be seen in a fantastic reference 
+\citep{Nobody06}. Figures and tables are placed automatically, such that they are
+close by but not necessarily on the same page\footnote{to optimize page space}.
+
+
+The concepts are summarized in Table~\ref{tab:comparison}.
+% TABLE SATELLITE PARAMETERS ------------------------------
+\begin{table}
+\caption{Table caption with a CAPS word, no small caps can be used in table and figure captions because sans serif fonts don't support it.\label{tab:comparison}}
+\centering
+\begin{tabular}{lcccc}
+\toprule
+& Superman & Spiderman\\
+\midrule
+Gender & male & male\\
+Species 	& Homo Sapien 	& Human/spider\\
+Homeworld 	& Gotham City 	& Earth\\
+\midrule
+Publisher 	& DC Comics 	& Marvel Comics\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Main results of the research papers}
+
+\blindtext
+
+\begin{thesisbox}{Paper \I}
+\textbf{Brief headline summarizing its contents}
+\\[0.3em]
+\blindtext
+\end{thesisbox}
+
+
+% ===============================================================
+% ====================== References:  ===========================
+
+% Bibliography renamed to references
+\renewcommand{\bibname}{References}
+\bibliographystyle{aa}
+\bibliography{thesis-example}  % Link to bibtex file %%%%%%%%%%%%%%%%%%%
+
+
+% ===============================================================
+% ====================== Part II: Scientific publications  ======
+% ===============================================================
+
+\chap{Scientific publications}
+\sect{Author contributions}
+
+Co-authors are abbreviated as follows: \\
+Foo Bar (FB), \ldots.
+
+\subsect{Paper~\I: \PaperItitle}
+
+I did \ldots. FB  did \ldots.
+
+\subsect{Paper~\II: \PaperIItitle}
+
+I did \ldots. FB  did \ldots.
+
+\subsect{Paper~\III: \PaperIIItitle}
+
+I did \ldots. FB  did \ldots.
+
+\subsect{Paper~\IV: \PaperIVtitle}
+
+I did \ldots. FB  did \ldots.
+
+\subsect{Paper~\V: \PaperVtitle}
+
+I did \ldots. FB  did \ldots.
+
+\subsect{Paper~\VI: \PaperVItitle}
+
+I did nothing. FB  did everything.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Include the papers. Try this out once in the beginning, but maybe disable it
+% for the main phase of your writing - it takes too long to compile otherwise.
+
+% First: Separating page
+\cleardoublepage
+\addcontentsline{toc}{section}{Paper~\I: {\PaperItitle}} % <<<<<<<<<<<<<<<<< Change the two Roman numbers here
+\thispagestyle{empty}
+\vspace*{2cm} %increase by 2cm each time. % <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Important
+\begin{minipage}{8cm}
+% Optional text, 1 line max, can also be left empty
+Conference poster in Appendix A.1
+\end{minipage}%
+\hfill{ 
+\fontsize{20}{30}\selectfont {\bf Paper~\I}}\marginpar{\rule[-4mm]{50mm}{14mm}} % Change the Roman number here
+\vfill
+
+%Second: The PDF itself
+\cleardoublepage
+% Include the PDF. Comment this while writing the thesis, only add later. 
+% Options are: all pages, scaled to full width (use 0.95 if that is too high for some reason), with thesis page number
+\includepdf[pages=-,width=1.00\textwidth,pagecommand={\thispagestyle{plain}}]{paperI.pdf}
+% One additional option could be useful: To cut away the margins of the included PDFs use:
+% clip,viewport=<left> <bottom> <right> <top>
+% To determine the four numbers you can use the ./determineViewport.sh script in the thesis directory. 
+
+% Repeat for all papers ...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Finally, an optional appendix, for example if your posters are helpful in any way.
+\cleardoublepage
+\appendix
+\thispagestyle{empty}
+\vspace*{4cm} %increase by 2cm each time. %<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Important
+\hfill{ %\fontspec{Frutiger}
+\fontsize{20}{30}\selectfont {\bf Appendix}}\marginpar{\rule[-4mm]{50mm}{14mm}}
+\vfill
+
+\appendix
+\chap{Appendix: Conference posters}
+\section*{Poster 1: \PaperItitle}
+Media-Tryck's suggestion to a poster layout, can be downloaded from \url{https://bildweb.srv.lu.se/login/}.
+Presented 2067 at the \emph{Symposium for time travel} 
+in Berlin, Germany. For further details refer to Paper~\I and
+Sect.~\ref{sec:mainresults}.
+
+% include poster itself. Cropping works as described above for the papers.
+\includepdf[pages=-,width=\paperwidth-10mm]{posterMediaTryck.pdf} %smaller margin, works fine when printing (hopefully ;) Hallå, Jonas!)
+
+\end{document}
